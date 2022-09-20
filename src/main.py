@@ -12,31 +12,31 @@ def funx(n=2, m=5):
     """
     Dummy function from example for tests
     """
-    max_val = float('-inf')
+    max_val = float("-inf")
     n = random.randint(10, 20)
     res = [pow(i, 2) for i in range(n)]
     for i in res:
         if i > max_val:
             max_val = i
-    print(f'funx max value: {max_val}')
+    print(f"funx max value: {max_val}")
 
 
 @decorator_1
-def pascal(n=3,sep=''):
+def pascal(n=3, sep=""):
     """
     Function prints Pascal's Triangle
     :param n: depth of triangle
     :param sep: separator for output
     """
-    print(f'Pascal triangle for n = {n}')
+    print(f"Pascal triangle for n = {n}")
     for i in range(1, n + 1):
         for j in range(0, n - i + 1):
-            print(' ', end='')
+            print(" ", end="")
         b_c = 1
         for j in range(1, i + 1):
-            print(' ', b_c, sep=sep, end=sep)
+            print(" ", b_c, sep=sep, end=sep)
             b_c = b_c * (i - j) // j
-        print('')
+        print("")
 
 
 def sqr_eq(a=1, b=1, c=1):
@@ -51,23 +51,23 @@ def sqr_eq(a=1, b=1, c=1):
 
     if D == 0:
         x = -b / (2 * a)
-        print(f'x = {x} for {a}x^2 + ({b})x + ({c}) = 0 quadratic equation')
+        print(f"x = {x} for {a}x^2 + ({b})x + ({c}) = 0 quadratic equation")
     elif D < 0:
-        print(f'No real roots for {a}x^2 + ({b})x + ({c}) = 0 quadratic equation')
+        print(f"No real roots for {a}x^2 + ({b})x + ({c}) = 0 quadratic equation")
     else:
         x1 = (-b + sqrt(D)) / (2 * a)
         x2 = (-b - sqrt(D)) / (2 * a)
-        print(f'x1 = {x1}\nx2 = {x2}\nFor {a}x^2 + ({b})x + ({c}) = 0 quadratic equation')
+        print(
+            f"x1 = {x1}\nx2 = {x2}\nFor {a}x^2 + ({b})x + ({c}) = 0 quadratic equation"
+        )
 
 
 def test_task_1():
     pascal(n=1)
     funx()
-    pascal(n=2, sep='*')
+    pascal(n=2, sep="*")
     funx()
     pascal(n=3)
-
-
 
 
 @decorator_2
@@ -92,7 +92,7 @@ def fsqr(n=2, m=5):
     """
     Function for testing Decorator3
     """
-    max_val = float('-inf')
+    max_val = float("-inf")
     n = sqr(random.randint(10, 20))
     res = [pow(i, 2) for i in range(n)]
     for i in res:
@@ -106,7 +106,7 @@ def fqub(n=2, m=5):
     """
     Function for testing Decorator3
     """
-    max_val = float('-inf')
+    max_val = float("-inf")
     n = qube(random.randint(10, 20))
     res = [pow(i, 2) for i in range(n)]
     for i in res:
@@ -120,7 +120,7 @@ def fsq1(n=2, m=5):
     """
     Function for testing Decorator3
     """
-    max_val = float('-inf')
+    max_val = float("-inf")
     n = sqr(random.randint(10, 20)) + 1
     res = [pow(i, 2) for i in range(n)]
     for i in res:
@@ -134,7 +134,7 @@ def fqu2(n=2, m=5):
     """
     Function for testing Decorator3
     """
-    max_val = float('-inf')
+    max_val = float("-inf")
     n = qube(random.randint(10, 20)) - 1
     res = [pow(i, 2) for i in range(n)]
     for i in res:
@@ -150,6 +150,7 @@ def test_task_3():
     fqu2()
     Decorator3.print_rank()
 
+
 @Decorator4
 def fun_err(x=1, y=0):
     """
@@ -164,7 +165,7 @@ def fqu3(n=2, m=5):
     """
     Function for testing Decorator4
     """
-    max_val = float('-inf')
+    max_val = float("-inf")
     n = qube(random.randint(10, 20)) - 1
     res = [pow(i, 2) for i in range(n)]
     for i in res:
@@ -179,22 +180,24 @@ def test_task_4():
 
 
 if __name__ == "__main__":
-    print(f'{"="*20}')
-    print(f'Testing Task 1')
+    print(f'{"=" * 20}')
+    print(f"Testing Task 1")
     print(f'{"=" * 20}')
     test_task_1()
-    print(f'{"="*20}')
-    print(f'Testing Task 2')
+    print(f'{"=" * 20}')
+    print(f"Testing Task 2")
     print(f'{"=" * 20}')
     test_task_2()
-    print(f'{"="*20}')
-    print(f'Testing Task 3')
+    print(f'{"=" * 20}')
+    print(f"Testing Task 3")
     print(f'{"=" * 20}')
     test_task_3()
-    print('Check output_task_3.txt for decorator output')
-    print(f'{"="*20}')
-    print(f'Testing Task 4')
+    print("Check output_task_3.txt for decorator output")
+    print(f'{"=" * 20}')
+    print(f"Testing Task 4")
     print(f'{"=" * 20}')
     test_task_4()
-    print('Check output_task_4.txt for decorator output and error_log_task_4.txt for errors')
+    print(
+        "Check output_task_4.txt for decorator output and error_log_task_4.txt for errors"
+    )
     print(f'{"="*20}')

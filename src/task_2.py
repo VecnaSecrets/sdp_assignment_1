@@ -1,39 +1,45 @@
-import inspect
-from time import time
+import io
+from contextlib import redirect_stdout
 from inspect import *
+from time import time
 
 
 def decorator_2(func):
-    def get_ouput(func, args, kwargs):
-        def inner(output):
-            str = ''
+    def get_output(func, args, kwargs):
+        def tabulation(output):
+            str = ""
             for line in output:
-                str += '\t' + line + '\n'
+                str += "\t" + line + "\n"
             return str
-
-        import io
-        from contextlib import redirect_stdout
 
         with io.StringIO() as buf, redirect_stdout(buf):
             func(args, kwargs)
-            return inner(buf.getvalue().splitlines())
+            return tabulation(buf.getvalue().splitlines())
 
-    def print_info(func, args, kwargs):
-        print(f'Name:    {func.__name__}')
-        print(f'Type:    {type(func)}')
-        print(f'Sign:    {signature(func)}')
-        print(f'Args:    positional {args}\n\t\t key-worded {kwargs}')
-        print(f'Doc:     {func.__doc__}')
-        print(f'Source:\n{inspect.getsource(func)}')
-        print(f'Output:\n{get_ouput(func, args, kwargs)}')
+    def print_info(func, args, kwds):
+        print(f"Name:    {func.__name__}")
+        print(f"Type:    {type(func)}")
+        print(f"Sign:    {signature(func)}")
+        print(f"Args:    positional {args}\n\t\t key-worded {kwds}")
+        print(f"Doc:     {func.__doc__}")
+        print(f"Source:\n{getsource(func)}")
+        print(f"Output:\n{get_output(func, args, kwds)}")
 
-    def wrap_func(*args, **kwargs):
+    # You can use the already existing function decorator in task 1
+    def wrapper(*args, **kwds):
+        wrapper.counter += 1
+
         t1 = time()
-        result = func(*args, **kwargs)
+        result = func(*args, **kwds)
         t2 = time()
-        wrap_func.counter += 1
-        print(f'Function {func.__name__!r} executed in {(t2 - t1):.4f}s Number of calls: ', wrap_func.counter)
-        print_info(func, args, kwargs)
+
+        print(
+            f"Function {func.__name__!r} executed in {(t2 - t1):.4f}s.\nNumber of calls: {wrapper.counter}."
+        )
+        print_info(func, args, kwds)
+
         return result
-    wrap_func.counter = 0
-    return wrap_func
+
+    wrapper.counter = 0
+
+    return wrapper
