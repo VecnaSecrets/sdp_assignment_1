@@ -1,0 +1,104 @@
+Function 'fsqr' executed in 0.0002s Number of calls:  1
+Name:    fsqr
+Type:    <class 'function'>
+Sign:    (n=2, m=5)
+Args:    positional ()
+		 key-worded {}
+Doc:     
+    Function for testing Decorator3
+    
+Source:
+@Decorator3
+def fsqr(n=2, m=5):
+    """
+    Function for testing Decorator3
+    """
+    max_val = float('-inf')
+    n = sqr(random.randint(10, 20))
+    res = [pow(i, 2) for i in range(n)]
+    for i in res:
+        if i > max_val:
+            max_val = i
+    print(max_val)
+
+Output:
+	20449
+
+Function 'fqub' executed in 0.0023s Number of calls:  1
+Name:    fqub
+Type:    <class 'function'>
+Sign:    (n=2, m=5)
+Args:    positional ()
+		 key-worded {}
+Doc:     
+    Function for testing Decorator3
+    
+Source:
+@Decorator3
+def fqub(n=2, m=5):
+    """
+    Function for testing Decorator3
+    """
+    max_val = float('-inf')
+    n = qube(random.randint(10, 20))
+    res = [pow(i, 2) for i in range(n)]
+    for i in res:
+        if i > max_val:
+            max_val = i
+    print(max_val)
+
+Output:
+	47032164
+
+Function 'fsq1' executed in 0.0001s Number of calls:  1
+Name:    fsq1
+Type:    <class 'function'>
+Sign:    (n=2, m=5)
+Args:    positional ()
+		 key-worded {}
+Doc:     
+    Function for testing Decorator3
+    
+Source:
+@Decorator3
+def fsq1(n=2, m=5):
+    """
+    Function for testing Decorator3
+    """
+    max_val = float('-inf')
+    n = sqr(random.randint(10, 20)) + 1
+    res = [pow(i, 2) for i in range(n)]
+    for i in res:
+        if i > max_val:
+            max_val = i
+    print(max_val)
+
+Output:
+	65536
+
+Function 'fqu2' executed in 0.0015s Number of calls:  1
+Name:    fqu2
+Type:    <class 'function'>
+Sign:    (n=2, m=5)
+Args:    positional ()
+		 key-worded {}
+Doc:     
+    Function for testing Decorator3
+    
+Source:
+@Decorator3
+def fqu2(n=2, m=5):
+    """
+    Function for testing Decorator3
+    """
+    max_val = float('-inf')
+    n = qube(random.randint(10, 20)) - 1
+    res = [pow(i, 2) for i in range(n)]
+    for i in res:
+        if i > max_val:
+            max_val = i
+    print(max_val)
+
+Output:
+	63968004
+
